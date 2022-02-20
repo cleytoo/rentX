@@ -30,7 +30,7 @@ describe("List Categories", () => {
 
   it("shoul be able to list  all categories", async () => {
     const {
-      body: { token },
+      body: { refresh_token },
     } = await request(app).post("/sessions").send({
       email: "admin@admin.com.br",
       password: "admin",
@@ -43,7 +43,7 @@ describe("List Categories", () => {
         description: "Category supertest",
       })
       .set({
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${refresh_token}`,
       });
 
     const res = await request(app).get("/categories");

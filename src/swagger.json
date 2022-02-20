@@ -2,7 +2,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Rentx Documentation",
-    "description": "This is api rent",
+    "description": "This is api rentx",
     "version": "1.0.0",
     "contact": {
       "email": "vini@gmail.com"
@@ -14,6 +14,9 @@
         "tags": ["Category"],
         "summary": "Create a categorie",
         "description": "Create a new categorie",
+        "security": [
+          {"bearerAuth": []}
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -112,6 +115,38 @@
           }
         }
       }
+    },
+    "/sessions": {
+      "post": {
+        "tags": ["Sessions"],
+        "summary": "Authentication user",
+        "description": "Authentication user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "decription": "Success"
+          },
+          "400": {
+            "description": "Email or password invalid"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -124,6 +159,15 @@
         "description": {
           "type": "string"
         }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   }

@@ -9,22 +9,21 @@ class CarsRepositoryInMemory implements ICarsRepository {
   private cars: Car[] = [];
 
   constructor() {
-    const fakeCar: Car = {
-      name: "Fakecar",
-      available: false,
-      brand: "fake",
-      category: null,
-      created_at: new Date(),
-      category_id: "23232",
-      license_plate: "abp-123",
-      daily_rate: 10,
-      description: "lalala",
-      fine_amount: 10,
-      specifications: [],
-      id: uuiv4(),
-    };
-
-    this.cars.push(fakeCar);
+    // const fakeCar: Car = {
+    //   name: "Fakecar",
+    //   available: false,
+    //   brand: "fake",
+    //   category: null,
+    //   created_at: new Date(),
+    //   category_id: "23232",
+    //   license_plate: "abp-123",
+    //   daily_rate: 10,
+    //   description: "lalala",
+    //   fine_amount: 10,
+    //   specifications: [],
+    //   id: uuiv4(),
+    // };
+    // this.cars.push(fakeCar);
   }
 
   async create({

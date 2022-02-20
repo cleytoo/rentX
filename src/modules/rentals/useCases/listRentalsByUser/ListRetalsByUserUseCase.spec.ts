@@ -18,7 +18,6 @@ describe("List rentals by user", () => {
     inMemoryCarsRepository = new CarsRepositoryInMemory();
 
     listRentalsByUseCase = new ListRentalsByUserUseCase(
-      inMemoryUsersRepository,
       inMemoryRentalsRepository
     );
   });
@@ -49,8 +48,6 @@ describe("List rentals by user", () => {
     });
 
     const rentals = await listRentalsByUseCase.execute(user.id);
-
-    console.log(rentals);
 
     expect(rentals).toEqual([rental]);
   });
